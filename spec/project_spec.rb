@@ -96,4 +96,14 @@ describe Project do
       expect(Project.all).to eq []
     end
   end
+
+  context '.delete_title' do
+    it 'allows a user to delete a project accessing via class' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save()
+      project_id = project.id()
+      Project.delete_title({:id => project_id})
+      expect(Project.all).to eq []
+    end
+  end
 end
