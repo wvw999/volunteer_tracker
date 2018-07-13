@@ -12,7 +12,12 @@ class Project
   end
 
   def id()
-    DB.exec("SELECT id from projects WHERE title = ('#{@title}');")
+    get_id = DB.exec("SELECT id from projects WHERE title = ('#{@title}');")
+    if get_id.first === nil
+      @id
+    else
+      @id = DB.exec("SELECT id from projects WHERE title = ('#{@title}');").first.fetch('id').to_i
+    end
   end
 
   def save()

@@ -9,11 +9,10 @@ describe Project do
     end
   end
 
-  # this test seems invalid. with save, it will return nil. without save, it will return nil. if 'id' cannot be found at all, it will still return nil. changing initial id value to 333.
   context '#id' do
     it 'returns the id of the project before saving project' do
-      project = Project.new({:title => 'Teaching Kids to Code', :id => 333})
-      expect(project.id().first).to eq nil
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      expect(project.id()).to eq nil
     end
 
     it 'returns the id of the project after saving project' do
