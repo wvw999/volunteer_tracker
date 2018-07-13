@@ -38,4 +38,13 @@ class Volunteer
      self.id().==(thing_two.id()).&(self.name().==(thing_two.name()))
   end
 
+  def self.all()
+    # volunteers = []
+    # volunteers_query = DB.exec("SELECT * FROM volunteers;")
+    # volunteers_query.each do |volunteer|
+    #   volunteers.push volunteer.fetch('name')
+    # end
+    # volunteers
+  end
+
 end
