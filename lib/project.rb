@@ -29,7 +29,12 @@ class Project
   end
 
   def self.all()
-
+    projects = []
+    projects_query = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
+    projects_query.each do |project|
+      projects.push project
+    end
+    projects
   end
 
 end
