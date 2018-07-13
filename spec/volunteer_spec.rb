@@ -42,7 +42,7 @@ describe Volunteer do
     it 'adds a volunteer to the database' do
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       volunteer1.save
-      expect(Volunteer.all).to eq [volunteer1]
+      expect(Volunteer.all).to eq ['Jane', '1']
     end
   end
 #
