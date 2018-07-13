@@ -42,4 +42,12 @@ class Project
     id_query.first.fetch('title')
   end
 
+  def volunteers(id)
+    volunteers_query = DB.exec("SELECT * FROM volunteers WHERE project_id = #{id};")
+    volunteers_list = []
+    volunteers_query.each do |volunteer|
+      volunteers_list.push volunteer.fetch('name')
+    end
+    volunteers_list
+  end
 end

@@ -64,18 +64,19 @@ describe Project do
       expect(Project.find(project1_id)).to eq 'Teaching Kids to Code'
     end
   end
-  #
-  # describe '#volunteers' do
-  #   it 'returns all volunteers for a specific project' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
-  #     volunteer1.save
-  #     volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
-  #     volunteer2.save
-  #     expect(project.volunteers).to eq [volunteer1, volunteer2]
-  #   end
-  # end
+   # test needs to be updated to work around nil id
+  describe '#volunteers' do
+    it 'returns all volunteers for a specific project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      project_id = project.id()
+      volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project_id, :id => nil})
+      volunteer2.save
+      expect(project.volunteers(project_id)).to eq ['Jasmine', 'Joe']
+    end
+  end
   #
   # describe '#update' do
   #   it 'allows a user to update a project' do
