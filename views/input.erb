@@ -48,7 +48,7 @@
         <form action="/volunteer" method="post">
           <h3>Add a new volunteer:</h3>
           <input id="volunteer" name="volunteer" class="form-control" type="text" placeholder="volunteer name">
-          <select id="projects_list" name="projects_drop">
+          <select id="projects_drop" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
                 <option value = "<%= project[1] %>" > <%= project[0] %> </option>
@@ -126,7 +126,7 @@
 
           <ul>
             <%@project_names.each do |project|%>
-            <li> <%= project %> </li>
+            <li> <%= project[0] %> </li>
             <% end %>
           </ul>
 
@@ -142,7 +142,7 @@
 
           <ul>
             <%@volunteer_names.each do |volunteer|%>
-            <li> <%= volunteer %> </li>
+            <li> <%= volunteer[0] %> </li>
             <% end %>
           </ul>
 

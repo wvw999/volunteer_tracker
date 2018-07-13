@@ -39,11 +39,15 @@ post ('/delete') do
   @volunteer_names = Volunteer.all()
   redirect to('/')
 end
-#
-# post ('/project') do
-#
-#   redirect to('/')
-# end
+
+post ('/volunteer') do
+  @name = params["volunteer"]
+  @id = params["id"]
+  @project_id = params["projects_drop"]
+  new_volunteer = Volunteer.new({:name => @name, :project_id => @project_id, :id => nil})
+  new_volunteer.save()
+  redirect to('/')
+end
 #
 # post ('/project') do
 #
