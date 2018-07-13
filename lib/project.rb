@@ -11,7 +11,7 @@ class Project
     @title
   end
 
-  def id(id)
+  def id()
     # @id
   end
 
