@@ -1,23 +1,148 @@
 <div class="container">
   <div class="row">
-    <p> </p>
-    <h4>Welcome to The Trains!</h4>
-    <p> </p>
-    <form action="/rider" method="get">
-      <p>I am a Rider, so let's look at train stuff</p>
-      <p> </p>
-      <button type="submit" class="btn btn-danger">go look</button>
-      <p> </p>
-    </form>
-    <form action="/operator" method="get">
-      <p>I am an Operator, so, let's modify some things</p>
-      <p> </p>
-      <button type="submit" class="btn btn-warning">modify!</button>
-      <p> </p>
-    </form>
-  </div>
-  <div class="row">
-    <!-- <%= @all %> -->
+    <p>&nbsp;</p>
+    <h1>// /// //// - * - Volunteer Tracker - * - //// /// //</h1>
+    <p>&nbsp;</p>
+    <div class="row">
+      <div class="col-md-4">
+        <form action="/project" method="post">
+          <h3>Add a new project:</h3>
+          <input id="project" name="project" class="form-control" type="text" placeholder="project title">
+          <p></p>
+          <button type="submit" class="btn btn-info">submit</button>
+          <p> </p>
+        </form>
+        <form action="/title" method="post">
+          <h3>Update a project:</h3>
+          <input id="title" name="title" class="form-control" type="text" placeholder="updated project title">
+          <p></p>
+          <button type="submit" class="btn btn-warning">submit</button>
+          <p> </p>
+        </form>
+        <form action="/delete" method="post">
+          <h3>Delete a project:</h3>
+          <select id="projects_list" name="projects_drop">
+            <%if @project_names != []%>
+              <% @project_names.each do |project| %>
+                <option value = "<%= project.(id) %>" > <%= project %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no projects yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <button type="submit" class="btn btn-danger">submit</button>
+          <p> </p>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <form action="/volunteer" method="post">
+          <h3>Add a new volunteer:</h3>
+          <input id="volunteer" name="volunteer" class="form-control" type="text" placeholder="volunteer name">
+          <select id="projects_list" name="projects_drop">
+            <%if @project_names != []%>
+              <% @project_names.each do |project| %>
+                <option value = "<%= project.id() %>" > <%= project %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no projects yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <button type="submit" class="btn btn-info">submit</button>
+          <p> </p>
+        </form>
+        <form action="/name" method="post">
+          <h3>Update a volunteer's name:</h3>
+          <input id="name" name="name" class="form-control" type="text" placeholder="updated volunteer name">
+          <select id="volunteers_list" name="volunteers_drop">
+            <%if @volunteer_names != []%>
+              <% @volunteer_names.each do |volunteer| %>
+                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no volunteers yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <button type="submit" class="btn btn-warning">submit</button>
+          <p> </p>
+        </form>
+        <form action="/current" method="post">
+          <h3>Update a volunteer's project:</h3>
+          <select id="volunteers_list" name="volunteers_drop">
+            <%if @volunteer_names != []%>
+              <% @volunteer_names.each do |volunteer| %>
+                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no volunteers yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <select id="projects_list" name="projects_drop">
+            <%if @project_names != []%>
+              <% @project_names.each do |project| %>
+                <option value = "<%= project["id"] %>" > <%= project["title"] %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no projects yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <button type="submit" class="btn btn-warning">submit</button>
+          <p> </p>
+        </form>
+        <form action="/remove" method="post">
+          <h3>Delete a volunteer:</h3>
+          <select id="volunteers_list" name="volunteers_drop">
+            <%if @volunteer_names != []%>
+              <% @volunteer_names.each do |volunteer| %>
+                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no volunteers yet</option>
+            <% end %>
+          </select>
+          <p></p>
+          <button type="submit" class="btn btn-danger">submit</button>
+          <p> </p>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <%if @project_names != []%>
+          <h3>Here are your projects</h3>
 
+          <ul>
+            <%@project_names.each do |project|%>
+            <li> <%= project %> </li>
+            <% end %>
+          </ul>
+
+        <% else %>
+          <h3>Here are your projects</h3>
+
+          <p>There are no projects yet!</p>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <%if @volunteer_names != []%>
+          <h3>Here are your volunteers</h3>
+
+          <ul>
+            <%@volunteer_names.each do |volunteer|%>
+            <li> <%= volunteer %> </li>
+            <% end %>
+          </ul>
+
+        <% else %>
+          <h3>Here are your volunteers</h3>
+
+          <p>There are no volunteers yet!</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

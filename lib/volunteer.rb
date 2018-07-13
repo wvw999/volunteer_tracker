@@ -48,6 +48,19 @@ class Volunteer
     volunteers
   end
 
+  def self.more()
+    volunteers = []
+    volunteers_query = DB.exec("SELECT * FROM volunteers;")
+    volunteers_query.each do |volunteer|
+      volunteers_each = []
+      volunteers_each.push volunteer.fetch('name')
+      volunteers_each.push volunteer.fetch('project_id')
+      volunteers_each.push volunteer.fetch('id')
+      volunteers.push volunteers_each
+    end
+    volunteers
+  end
+
   def self.find(id)
     volunteers = []
     volunteers_query = DB.exec("SELECT name, project_id FROM volunteers WHERE id = #{id};")

@@ -37,6 +37,18 @@ class Project
     projects
   end
 
+  def self.more()
+    projects = []
+    projects_query = DB.exec("SELECT * FROM projects;")
+    projects_query.each do |project|
+      projects_each = []
+      projects_each.push project.fetch('title')
+      projects_each.push project.fetch('id')
+      projects.push projects_each
+    end
+    projects
+  end
+
   def self.find(id)
     id_query = DB.exec("SELECT * FROM projects WHERE id = #{id};")
     id_query.first.fetch('title')

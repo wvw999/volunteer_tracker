@@ -1,9 +1,9 @@
 # The IT manager also believes in testing so he has written the tests himself. You can find the tests here.
 
-You may alter a unit test only if you are adding more attributes to volunteers or projects.
-You may (and should) add more unit tests if you decide to add additional features or if there are any methods that arent covered by the included tests.
+# You may alter a unit test only if you are adding more attributes to volunteers or projects.
+# You may (and should) add more unit tests if you decide to add additional features or if there are any methods that arent covered by the included tests.
 You may alter the names of buttons and fields in the Capybara tests. You may also add additional tests. However, your integration specs should otherwise use the current provided tests unaltered.
-If there is an error or bug in any of the tests, you may correct that error.
+# If there is an error or bug in any of the tests, you may correct that error.
 
 Volunteer Tracker
 Create an application that tracks projects and the volunteers working on them. Each volunteer will belong to only one project (one project, many volunteers).
