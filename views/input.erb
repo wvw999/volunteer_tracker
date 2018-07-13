@@ -24,7 +24,7 @@
           <select id="projects_list" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
-                <option value = "<%= project.(id) %>" > <%= project %> </option>
+                <option value = "<%= project[1] %>" > <%= project[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no projects yet</option>
@@ -42,7 +42,7 @@
           <select id="projects_list" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
-                <option value = "<%= project.id() %>" > <%= project %> </option>
+                <option value = "<%= project[1] %>" > <%= project[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no projects yet</option>
@@ -58,7 +58,7 @@
           <select id="volunteers_list" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
-                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+                <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no volunteers yet</option>
@@ -73,7 +73,7 @@
           <select id="volunteers_list" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
-                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+                <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no volunteers yet</option>
@@ -83,7 +83,7 @@
           <select id="projects_list" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
-                <option value = "<%= project["id"] %>" > <%= project["title"] %> </option>
+                <option value = "<%= project[1] %>" > <%= project[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no projects yet</option>
@@ -98,7 +98,7 @@
           <select id="volunteers_list" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
-                <option value = "<%= volunteer["id"] %>" > <%= volunteer["name"] %> </option>
+                <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
               <% end %>
             <% else %>
               <option value="" disabled selected>no volunteers yet</option>

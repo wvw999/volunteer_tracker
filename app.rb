@@ -9,8 +9,8 @@ require("pg")
 DB = PG.connect({:dbname => "volunteer_tracker_test"})
 
 get ('/') do
-  @project_names = Project.all()
-  @volunteer_names = Volunteer.all()
+  @project_names = Project.more()
+  @volunteer_names = Volunteer.more()
   erb(:input)
 end
 
