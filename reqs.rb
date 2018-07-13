@@ -16,7 +16,7 @@ As a non-profit employee, I want to add volunteers to a project.
 Additional Requirements
 Please do not specify a Ruby version in your Gemfile. It makes it more difficult to review projects.
 
-For this code review, please use the following names for your databases:
+# For this code review, please use the following names for your databases:
 
 # Production Database: volunteer_tracker
 # Development Database: volunteer_tracker_test
@@ -28,3 +28,11 @@ $ pg_dump volunteer_tracker > my_database.sql
 This will create a database dump called my_database.sql in your project's root directory. volunteer_tracker is the name of the database being dumped. Before you submit, confirm that the root directory of your repository contains my_database.sql. We will not review your code if this isn't properly set up.
 
 Your README should also include any important instructions for setting up and using your project! You may want to review our lesson on READMEs.
+
+
+
+# Your project should be set up so that a volunteer can only be created if a project already exists. (This makes it easier to assign the one to many relationship in Sinatra.) Focus on getting one integration spec passing at a time.
+
+# The user should be able to visit the home page and fill out a form to add a new project. When that project is created, the application should direct them back to the homepage.
+
+# # A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)

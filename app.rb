@@ -57,3 +57,12 @@ post ('/name') do
   @volunteer_names = Volunteer.all()
   redirect to('/')
 end
+
+post ('/current') do
+  @project_id = params["projects_drop"]
+  @id = params["volunteers_drop"]
+  Volunteer.update_id({:project_id => @project_id, :id => @id})
+  @project_names = Project.all()
+  @volunteer_names = Volunteer.all()
+  redirect to('/')
+end
