@@ -9,7 +9,7 @@ class Volunteer
   end
 
   def save()
-    DB.exec("INSERT INTO volunteers (name, project_id, id) VALUES ('#{@name}','#{@project_id}','#{@id}')")
+    DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}','#{@project_id}')")
   end
 
   def id()
