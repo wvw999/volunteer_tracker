@@ -28,4 +28,8 @@ class Project
      self.id().==(thing_two.id()).&(self.title().==(thing_two.title()))
   end
 
+  def self.all()
+
+  end
+
 end
