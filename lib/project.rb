@@ -29,12 +29,12 @@ class Project
   end
 
   def self.all()
-    # projects = []
-    # projects_query = DB.exec("SELECT * FROM projects;")
-    # projects_query.each do |project|
-    #   projects.push project.fetch('title')
-    # end
-    # projects
+    projects = []
+    projects_query = DB.exec("SELECT * FROM projects;")
+    projects_query.each do |project|
+      projects.push project.fetch('title')
+    end
+    projects
   end
 
 end
