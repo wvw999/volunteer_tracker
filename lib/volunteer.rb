@@ -25,7 +25,14 @@ class Volunteer
     @name
   end
 
-
+  def project_id()
+    # get_id = DB.exec("SELECT id from volunteers WHERE name = ('#{@name}');")
+    # if get_id.first === nil
+    #   @project_id
+    # else
+    #   @project_id = DB.exec("SELECT id from volunteers WHERE name = ('#{@name}');").first.fetch('id').to_i
+    # end
+  end
 
 
 end
