@@ -68,30 +68,31 @@ describe Project do
   describe '#volunteers' do
     it 'returns all volunteers for a specific project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      project.save
+      project.save()
       project_id = project.id()
       volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
-      volunteer1.save
+      volunteer1.save()
       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project_id, :id => nil})
-      volunteer2.save
+      volunteer2.save()
       expect(project.volunteers(project_id)).to eq ['Jasmine', 'Joe']
     end
   end
-  #
-  # describe '#update' do
-  #   it 'allows a user to update a project' do
-  #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     project.update({:title => 'Teaching Ruby to Kids', :id => nil})
-  #     expect(project.title).to eq 'Teaching Ruby to Kids'
-  #   end
-  # end
-  #
+
+  describe '#update' do
+    it 'allows a user to update a project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save()
+      project_id = project.id()
+      project.update({:title => 'Teaching Ruby to Kids', :id => project_id})
+      expect(project.title).to eq 'Teaching Ruby to Kids'
+    end
+  end
+
   # context '#delete' do
   #   it 'allows a user to delete a project' do
   #     project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-  #     project.save
-  #     project.delete
+  #     project.save()
+  #     project.delete()
   #     expect(Project.all).to eq []
   #   end
   # end
