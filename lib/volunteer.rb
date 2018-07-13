@@ -71,4 +71,25 @@ class Volunteer
     volunteers
   end
 
+  def update(attributes)
+    @name = attributes.fetch(:title)
+    @project_id = attributes.fetch(:project_id)
+    @id = attributes.fetch(:id)
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = '#{@id}';")
+  end
+
+  def self.update_id(attributes)
+    @name = attributes.fetch(:title)
+    @project_id = attributes.fetch(:project_id)
+    @id = attributes.fetch(:id)
+    DB.exec("UPDATE volunteers SET project_id = '#{@project_id}' WHERE id = '#{@id}';")
+  end
+
+  def self.update_name(attributes)
+    @name = attributes.fetch(:title)
+    @project_id = attributes.fetch(:project_id)
+    @id = attributes.fetch(:id)
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = '#{@id}';")
+  end
+
 end

@@ -14,6 +14,15 @@
         </form>
         <form action="/title" method="post">
           <h3>Update a project:</h3>
+          <select id="projects_drop" name="projects_drop">
+            <%if @project_names != []%>
+              <% @project_names.each do |project| %>
+                <option value = "<%= project[1] %>" > <%= project[0] %> </option>
+              <% end %>
+            <% else %>
+              <option value="" disabled selected>no projects yet</option>
+            <% end %>
+          </select>
           <input id="title" name="title" class="form-control" type="text" placeholder="updated project title">
           <p></p>
           <button type="submit" class="btn btn-warning">submit</button>
@@ -54,7 +63,6 @@
         </form>
         <form action="/name" method="post">
           <h3>Update a volunteer's name:</h3>
-          <input id="name" name="name" class="form-control" type="text" placeholder="updated volunteer name">
           <select id="volunteers_list" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
@@ -64,6 +72,7 @@
               <option value="" disabled selected>no volunteers yet</option>
             <% end %>
           </select>
+          <input id="name" name="name" class="form-control" type="text" placeholder="updated volunteer name">
           <p></p>
           <button type="submit" class="btn btn-warning">submit</button>
           <p> </p>

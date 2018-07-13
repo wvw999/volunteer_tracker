@@ -22,11 +22,15 @@ post ('/project') do
   @volunteer_names = Volunteer.all()
   redirect to('/')
 end
-#
-# post ('/project') do
-#
-#   redirect to('/')
-# end
+
+post ('/title') do
+  @title = params["title"]
+  @id = params["projects_drop"]
+  Project.update_title({:title => @title, :id => @id})
+  @project_names = Project.all()
+  @volunteer_names = Volunteer.all()
+  redirect to('/')
+end
 #
 # post ('/project') do
 #
