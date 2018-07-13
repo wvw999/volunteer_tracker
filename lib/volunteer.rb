@@ -34,5 +34,8 @@ class Volunteer
     end
   end
 
+  def ==(thing_two)
+    #  self.id().==(thing_two.id()).&(self.name().==(thing_two.name()))
+  end
 
 end
