@@ -39,12 +39,12 @@ class Volunteer
   end
 
   def self.all()
-    # volunteers = []
-    # volunteers_query = DB.exec("SELECT * FROM volunteers;")
-    # volunteers_query.each do |volunteer|
-    #   volunteers.push volunteer.fetch('name')
-    # end
-    # volunteers
+    volunteers = []
+    volunteers_query = DB.exec("SELECT * FROM volunteers;")
+    volunteers_query.each do |volunteer|
+      volunteers.push volunteer.fetch('name')
+    end
+    volunteers
   end
 
 end
