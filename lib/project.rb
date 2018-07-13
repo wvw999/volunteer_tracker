@@ -7,7 +7,7 @@ class Project
   end
 
   def title()
-    # @title
+    @title
   end
 
 end
