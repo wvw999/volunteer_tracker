@@ -16,7 +16,7 @@ class Project
   end
 
   def save()
-    # DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
+    DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
   end
 
 end
