@@ -79,4 +79,9 @@ class Project
     DB.exec("DELETE FROM projects WHERE id = '#{self.id}';")
   end
 
+  def self.delete_title(attributes)
+    @id = attributes.fetch(:id)
+    DB.exec("DELETE FROM projects WHERE id = '#{@id}';")
+  end
+
 end

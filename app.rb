@@ -31,11 +31,14 @@ post ('/title') do
   @volunteer_names = Volunteer.all()
   redirect to('/')
 end
-#
-# post ('/project') do
-#
-#   redirect to('/')
-# end
+
+post ('/delete') do
+  @id = params["projects_drop"]
+  Project.delete_title({:id => @id})
+  @project_names = Project.all()
+  @volunteer_names = Volunteer.all()
+  redirect to('/')
+end
 #
 # post ('/project') do
 #

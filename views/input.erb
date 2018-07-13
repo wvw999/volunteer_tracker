@@ -30,7 +30,7 @@
         </form>
         <form action="/delete" method="post">
           <h3>Delete a project:</h3>
-          <select id="projects_list" name="projects_drop">
+          <select id="projects_drop" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
                 <option value = "<%= project[1] %>" > <%= project[0] %> </option>
