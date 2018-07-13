@@ -25,7 +25,7 @@ class Project
   end
 
   def ==(thing_two)
-    #  self.id().==(thing_two.id()).&(self.title().==(thing_two.title()))
-   end
+     self.id().==(thing_two.id()).&(self.title().==(thing_two.title()))
+  end
 
 end
