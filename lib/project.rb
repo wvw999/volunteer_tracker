@@ -24,4 +24,8 @@ class Project
     DB.exec("INSERT INTO projects (title) VALUES ('#{@title}');")
   end
 
+  def ==(thing_two)
+    #  self.id().==(thing_two.id()).&(self.title().==(thing_two.title()))
+   end
+
 end
