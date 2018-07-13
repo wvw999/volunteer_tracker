@@ -12,7 +12,7 @@ class Project
   end
 
   def id()
-    # @id
+    @id
   end
 
 end
