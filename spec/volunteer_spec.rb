@@ -56,4 +56,4 @@ describe Volunteer do
       expect(Volunteer.find(volunteer1_id)).to eq ['Jane', '1']
     end
   end
-  end
+end
