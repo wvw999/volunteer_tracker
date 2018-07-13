@@ -48,8 +48,12 @@ post ('/volunteer') do
   new_volunteer.save()
   redirect to('/')
 end
-#
-# post ('/project') do
-#
-#   redirect to('/')
-# end
+
+post ('/name') do
+  @name = params["volunteer"]
+  @id = params["volunteers_drop"]
+  Volunteer.update_name({:name => @name, :id => @id})
+  @project_names = Project.all()
+  @volunteer_names = Volunteer.all()
+  redirect to('/')
+end
