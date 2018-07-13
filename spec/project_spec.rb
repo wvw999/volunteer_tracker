@@ -53,7 +53,7 @@ describe Project do
     end
   end
 
- # test needs to be updated to work around nil id
+  # test needs to be updated to work around nil id
   describe '.find' do
     it 'returns a project by id' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
