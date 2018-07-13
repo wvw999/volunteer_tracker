@@ -22,7 +22,7 @@ class Volunteer
   end
 
   def name()
-    # @name
+    @name
   end
 
 
