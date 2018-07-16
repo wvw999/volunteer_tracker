@@ -50,9 +50,9 @@ post ('/volunteer') do
 end
 
 post ('/name') do
-  @name = params["volunteer"]
+  @name = params["name"]
   @id = params["volunteers_drop"]
-  Volunteer.update_name({:name => @name, :id => @id})
+  Volunteer.update_name({:name => @name, :id => @id.to_i})
   @project_names = Project.all()
   @volunteer_names = Volunteer.all()
   redirect to('/')
@@ -62,6 +62,14 @@ post ('/current') do
   @project_id = params["projects_drop"]
   @id = params["volunteers_drop"]
   Volunteer.update_id({:project_id => @project_id, :id => @id})
+  @project_names = Project.all()
+  @volunteer_names = Volunteer.all()
+  redirect to('/')
+end
+
+post ('/remove') do
+  @id = params["volunteers_drop"]
+  Volunteer.remove_volunteer({:id => @id})
   @project_names = Project.all()
   @volunteer_names = Volunteer.all()
   redirect to('/')

@@ -48,6 +48,7 @@
         <form action="/volunteer" method="post">
           <h3>Add a new volunteer:</h3>
           <input id="volunteer" name="volunteer" class="form-control" type="text" placeholder="volunteer name">
+          <p> </p>
           <select id="projects_drop" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
@@ -58,7 +59,11 @@
             <% end %>
           </select>
           <p></p>
+          <%if @project_names == [] %>
+          <button type="submit" class="btn btn-info" disabled="true">submit</button>
+          <% else %>
           <button type="submit" class="btn btn-info">submit</button>
+          <% end %>
           <p> </p>
         </form>
         <form action="/name" method="post">
@@ -122,7 +127,7 @@
     <div class="row">
       <div class="col-md-4">
         <%if @project_names != []%>
-          <h3>Here are your projects</h3>
+          <h3>List of projects</h3>
 
           <ul>
             <%@project_names.each do |project|%>
@@ -131,23 +136,23 @@
           </ul>
 
         <% else %>
-          <h3>Here are your projects</h3>
+          <h3>List of projects</h3>
 
           <p>There are no projects yet!</p>
         <% end %>
       </div>
       <div class="col-md-4">
         <%if @volunteer_names != []%>
-          <h3>Here are your volunteers</h3>
+          <h3>Volunteers and Project</h3>
 
           <ul>
             <%@volunteer_names.each do |volunteer|%>
-            <li> <%= volunteer[0] %> </li>
+            <li> <%= volunteer[0] %>, <%= volunteer[2] %> </li>
             <% end %>
           </ul>
 
         <% else %>
-          <h3>Here are your volunteers</h3>
+          <h3>Volunteers and Project</h3>
 
           <p>There are no volunteers yet!</p>
         <% end %>

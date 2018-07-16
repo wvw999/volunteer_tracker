@@ -4,12 +4,12 @@ class Volunteer
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
-    @project_id = attributes.fetch(:project_id)
+    @project_id = attributes.fetch(:project_id).to_i
     @id = attributes.fetch(:id)
   end
 
   def save()
-    DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}','#{@project_id}')")
+    DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id})")
   end
 
   def id()
@@ -50,12 +50,12 @@ class Volunteer
 
   def self.more()
     volunteers = []
-    volunteers_query = DB.exec("SELECT * FROM volunteers;")
+    volunteers_query = DB.exec("SELECT volunteers.id AS volunteer_id, volunteers.name, volunteers.project_id, projects.id, projects.title FROM volunteers, projects WHERE projects.id = volunteers.project_id;")
     volunteers_query.each do |volunteer|
       volunteers_each = []
       volunteers_each.push volunteer.fetch('name')
-      volunteers_each.push volunteer.fetch('project_id')
-      volunteers_each.push volunteer.fetch('id')
+      volunteers_each.push volunteer.fetch('volunteer_id')
+      volunteers_each.push volunteer.fetch('title')
       volunteers.push volunteers_each
     end
     volunteers
@@ -73,21 +73,26 @@ class Volunteer
 
   def update(attributes)
     @name = attributes.fetch(:title)
-    @project_id = attributes.fetch(:project_id)
-    @id = attributes.fetch(:id)
-    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = '#{@id}';")
+    @project_id = attributes.fetch(:project_id).to_i
+    @id = attributes.fetch(:id).to_i
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
   end
 
   def self.update_id(attributes)
-    @project_id = attributes.fetch(:project_id)
-    @id = attributes.fetch(:id)
-    DB.exec("UPDATE volunteers SET project_id = '#{@project_id}' WHERE id = '#{@id}';")
+    @project_id = attributes.fetch(:project_id).to_i
+    @id = attributes.fetch(:id).to_i
+    DB.exec("UPDATE volunteers SET project_id = #{@project_id} WHERE id = #{@id};")
   end
 
   def self.update_name(attributes)
     @name = attributes.fetch(:name)
-    @id = attributes.fetch(:id)
-    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = '#{@id}';")
+    @id = attributes.fetch(:id).to_i
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  def self.remove_volunteer(attributes)
+    @id = attributes.fetch(:id).to_i
+    DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
   end
 
 end
