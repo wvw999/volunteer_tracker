@@ -9,7 +9,7 @@
           <h3>Add a new project:</h3>
           <input id="project" name="project" class="form-control" type="text" placeholder="project title">
           <p></p>
-          <button type="submit" class="btn btn-info">submit</button>
+          <button type="submit" id="create" class="btn btn-info">submit</button>
           <p> </p>
         </form>
         <form action="/title" method="post">
@@ -25,12 +25,12 @@
           </select>
           <input id="title" name="title" class="form-control" type="text" placeholder="updated project title">
           <p></p>
-          <button type="submit" class="btn btn-warning">submit</button>
+          <button type="submit" id="update" class="btn btn-warning">submit</button>
           <p> </p>
         </form>
         <form action="/delete" method="post">
           <h3>Delete a project:</h3>
-          <select id="projects_drop" name="projects_drop">
+          <select id="projects_delete" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
                 <option value = "<%= project[1] %>" > <%= project[0] %> </option>
@@ -40,7 +40,7 @@
             <% end %>
           </select>
           <p></p>
-          <button type="submit" class="btn btn-danger">submit</button>
+          <button type="submit" id="delete droject" class="btn btn-danger">submit</button>
           <p> </p>
         </form>
       </div>
@@ -49,7 +49,7 @@
           <h3>Add a new volunteer:</h3>
           <input id="volunteer" name="volunteer" class="form-control" type="text" placeholder="volunteer name">
           <p> </p>
-          <select id="projects_drop" name="projects_drop">
+          <select id="projects_vol" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
                 <option value = "<%= project[1] %>" > <%= project[0] %> </option>
@@ -68,7 +68,7 @@
         </form>
         <form action="/name" method="post">
           <h3>Update a volunteer's name:</h3>
-          <select id="volunteers_list" name="volunteers_drop">
+          <select id="volunteers_name" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
                 <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
@@ -79,12 +79,12 @@
           </select>
           <input id="name" name="name" class="form-control" type="text" placeholder="updated volunteer name">
           <p></p>
-          <button type="submit" class="btn btn-warning">submit</button>
+          <button type="submit" id="update volunteer" class="btn btn-warning">submit</button>
           <p> </p>
         </form>
         <form action="/current" method="post">
           <h3>Update a volunteer's project:</h3>
-          <select id="volunteers_list" name="volunteers_drop">
+          <select id="volunteers_project" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
                 <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
@@ -94,7 +94,7 @@
             <% end %>
           </select>
           <p></p>
-          <select id="projects_list" name="projects_drop">
+          <select id="projects_proj" name="projects_drop">
             <%if @project_names != []%>
               <% @project_names.each do |project| %>
                 <option value = "<%= project[1] %>" > <%= project[0] %> </option>
@@ -109,7 +109,7 @@
         </form>
         <form action="/remove" method="post">
           <h3>Delete a volunteer:</h3>
-          <select id="volunteers_list" name="volunteers_drop">
+          <select id="volunteers_delete" name="volunteers_drop">
             <%if @volunteer_names != []%>
               <% @volunteer_names.each do |volunteer| %>
                 <option value = "<%= volunteer[1] %>" > <%= volunteer[0] %> </option>
