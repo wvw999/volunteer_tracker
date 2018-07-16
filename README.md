@@ -8,12 +8,12 @@
 
 A system for tracking volunteers
 
-## Setup/Contribution Requirements
+## Setup Requirements
 
 1. Clone the repo
-1. Make a new branch
-1. Commit and push your changes
-1. Create a PR
+1. build out the database outlined in my_database.sql
+1. delete Gemfile.lock and re-run Bundle, fix any errors
+1. from the root of the repo> ruby app.rb
 
 ## Links
 
