@@ -79,6 +79,7 @@ DEPENDENCIES
   capybara
   pg
   pry
+  rack
   rspec
   sinatra
   sinatra-contrib
