@@ -1,5 +1,3 @@
-require 'sequel'
-Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 require("sinatra")
 require("sinatra/reloader")
 also_reload("lib/**/*.rb")
